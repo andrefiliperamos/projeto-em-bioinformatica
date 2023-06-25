@@ -1,0 +1,22 @@
+library(RVAideMemoire)
+
+mydata <- data.frame(
+  outcome = c(0,1,1,0,0,1,0,1,1,1,1,1,0,0,1,1,0,1,0,1,1,0,0,1,0,1,1,0,0,1),
+  treatment = gl(3,1,30,labels=LETTERS[1:3]),
+  participant = gl(10,3,labels=letters[1:10])
+)
+mydata
+
+mydata$outcome <- factor(
+  mydata$outcome, levels = c(1, 0),
+  labels = c("success", "failure")
+)
+
+xtabs(~outcome + treatment, mydata)
+
+cochran.qtest(outcome ~ treatment | participant, mydata)
+
+Do output gerado salienta-se a estatística de teste e o valor de prova que, neste caso hipotético, sinalizam que os três tratamentos são, de facto, heterogéneos: 
+
+data:  outcome by treatment, block = participant 
+Q = 10.8889, df = 2, p-value = 0.00432
