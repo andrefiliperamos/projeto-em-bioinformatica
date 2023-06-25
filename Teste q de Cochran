@@ -16,7 +16,7 @@ xtabs(~outcome + treatment, mydata)
 
 cochran.qtest(outcome ~ treatment | participant, mydata)
 
-Do output gerado salienta-se a estatística de teste e o valor de prova que, neste caso hipotético, sinalizam que os três tratamentos são, de facto, heterogéneos: 
+# Do output gerado salienta-se a estatística de teste e o valor de prova que, neste caso hipotético, sinalizam que os três tratamentos são, de facto, heterogéneos: 
 
-data:  outcome by treatment, block = participant 
-Q = 10.8889, df = 2, p-value = 0.00432
+# data:  outcome by treatment, block = participant 
+# Q = 10.8889, df = 2, p-value = 0.00432
